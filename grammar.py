@@ -42,70 +42,14 @@ def line():
 
 def sentence():
     r = random.random()
-    if 0/8 < r <= 1/8:
-        return verb() + expr()
-    if 1/8 < r <= 2/8:
-        return pronoun() + "是" + expr()
-    if 2/8 < r <= 3/8:
-        return "是" + pronoun() + expr()
-    if 3/8 < r <= 4/8:
-        return sentence() + punc() + connector() + sentence()
-    if 4/8 < r <= 5/8:
-        return verb() + noun()
-    if 5/8 < r <= 6/8:
-        return noun() + verb() + noun()
-    if 6/8 < r <= 7/8:
-        return expr() + verb() + expr()
-    if 7/8 < r <= 8/8:
-        return connector() + sentence()
-
-def expr_connector():
-    r = random.random()
     if 0/4 < r <= 1/4:
-        return "的"
+        return expr() + punc() + connector() + expr()
     if 1/4 < r <= 2/4:
-        return "或"
+        return connector() + expr()
     if 2/4 < r <= 3/4:
-        return "和"
+        return expr()
     if 3/4 < r <= 4/4:
-        return "与"
-
-def expr():
-    r = random.random()
-    if 0/17 < r <= 1/17:
-        return verb()
-    if 1/17 < r <= 2/17:
-        return noun()
-    if 2/17 < r <= 3/17:
-        return noun() + expr_connector() + noun()
-    if 3/17 < r <= 4/17:
-        return noun() + expr_connector() + noun()
-    if 4/17 < r <= 5/17:
-        return noun() + expr_connector() + noun()
-    if 5/17 < r <= 6/17:
-        return expr() + expr_connector() + expr()
-    if 6/17 < r <= 7/17:
-        return expr() + adj()
-    if 7/17 < r <= 8/17:
-        return noun() + noun_adj()
-    if 8/17 < r <= 9/17:
-        return adj() + "如" + noun()
-    if 9/17 < r <= 10/17:
-        return noun() + "或" + noun()
-    if 10/17 < r <= 11/17:
-        return noun() + "与" + noun()
-    if 11/17 < r <= 12/17:
-        return noun() + "和" + noun()
-    if 12/17 < r <= 13/17:
-        return "像" + noun() + "一样"
-    if 13/17 < r <= 14/17:
-        return "像" + noun() + "一样" + adj()
-    if 14/17 < r <= 15/17:
-        return "在" + feelings_adj() + "时"
-    if 15/17 < r <= 16/17:
-        return "让" + pronoun() + verb()
-    if 16/17 < r <= 17/17:
-        return "让" + noun() + verb()
+        return expr()
 
 def question():
     r = random.random()
@@ -287,423 +231,532 @@ def verb_hasdec():
     if 4/5 < r <= 5/5:
         return "不" + verb()
 
-def common_verb():
+def expr_connector():
     r = random.random()
-    if 0/30 < r <= 1/30:
-        return "明白"
-    if 1/30 < r <= 2/30:
-        return "说"
-    if 2/30 < r <= 3/30:
-        return "走"
-    if 3/30 < r <= 4/30:
-        return "离开"
-    if 4/30 < r <= 5/30:
-        return "来"
-    if 5/30 < r <= 6/30:
-        return "看"
-    if 6/30 < r <= 7/30:
-        return "望"
-    if 7/30 < r <= 8/30:
-        return "听"
-    if 8/30 < r <= 9/30:
-        return "喜欢"
-    if 9/30 < r <= 10/30:
-        return "觉得"
-    if 10/30 < r <= 11/30:
-        return "出现"
-    if 11/30 < r <= 12/30:
-        return "胜过"
-    if 12/30 < r <= 13/30:
-        return "感受"
-    if 13/30 < r <= 14/30:
-        return "用"
-    if 14/30 < r <= 15/30:
-        return "行走"
-    if 15/30 < r <= 16/30:
-        return "品味"
-    if 16/30 < r <= 17/30:
-        return "怕"
-    if 17/30 < r <= 18/30:
-        return "害怕"
-    if 18/30 < r <= 19/30:
-        return "拥有"
-    if 19/30 < r <= 20/30:
-        return "知道"
-    if 20/30 < r <= 21/30:
-        return "将"
-    if 21/30 < r <= 22/30:
-        return "承认"
-    if 22/30 < r <= 23/30:
-        return "流"
-    if 23/30 < r <= 24/30:
-        return "只是"
-    if 24/30 < r <= 25/30:
-        return "相信"
-    if 25/30 < r <= 26/30:
-        return "选择"
-    if 26/30 < r <= 27/30:
-        return "过去"
-    if 27/30 < r <= 28/30:
-        return "忘记"
-    if 28/30 < r <= 29/30:
-        return "承受"
-    if 29/30 < r <= 30/30:
-        return "记得"
+    if 0/4 < r <= 1/4:
+        return "的"
+    if 1/4 < r <= 2/4:
+        return "或"
+    if 2/4 < r <= 3/4:
+        return "和"
+    if 3/4 < r <= 4/4:
+        return "与"
 
-def rarer_verb():
+def expr():
     r = random.random()
-    if 0/176 < r <= 1/176:
-        return "借"
-    if 1/176 < r <= 2/176:
-        return "预支"
-    if 2/176 < r <= 3/176:
-        return "引"
-    if 3/176 < r <= 4/176:
-        return "引来"
-    if 4/176 < r <= 5/176:
-        return "藏"
-    if 5/176 < r <= 6/176:
-        return "预知"
-    if 6/176 < r <= 7/176:
-        return "埋在"
-    if 7/176 < r <= 8/176:
-        return "错付"
-    if 8/176 < r <= 9/176:
-        return "飞入"
-    if 9/176 < r <= 10/176:
-        return "做了"
-    if 10/176 < r <= 11/176:
-        return "跌落"
-    if 11/176 < r <= 12/176:
-        return "盛开"
-    if 12/176 < r <= 13/176:
-        return "走过"
-    if 13/176 < r <= 14/176:
-        return "不来"
-    if 14/176 < r <= 15/176:
-        return "等待"
-    if 15/176 < r <= 16/176:
-        return "等"
-    if 16/176 < r <= 17/176:
-        return "怀念"
-    if 17/176 < r <= 18/176:
-        return "说话"
-    if 18/176 < r <= 19/176:
-        return "回报"
-    if 19/176 < r <= 20/176:
-        return "报之"
-    if 20/176 < r <= 21/176:
-        return "要"
-    if 21/176 < r <= 22/176:
-        return "把"
-    if 22/176 < r <= 23/176:
-        return "孕育"
-    if 23/176 < r <= 24/176:
-        return "干涸"
-    if 24/176 < r <= 25/176:
-        return "拥抱"
-    if 25/176 < r <= 26/176:
-        return "有"
-    if 26/176 < r <= 27/176:
-        return "伴"
-    if 27/176 < r <= 28/176:
-        return "陪伴"
-    if 28/176 < r <= 29/176:
-        return "看尽"
-    if 29/176 < r <= 30/176:
-        return "路经"
-    if 30/176 < r <= 31/176:
-        return "经过"
-    if 31/176 < r <= 32/176:
-        return "栖身"
-    if 32/176 < r <= 33/176:
-        return "似"
-    if 33/176 < r <= 34/176:
-        return "好像"
-    if 34/176 < r <= 35/176:
-        return "仿佛"
-    if 35/176 < r <= 36/176:
-        return "多"
-    if 36/176 < r <= 37/176:
-        return "空余"
-    if 37/176 < r <= 38/176:
-        return "开口"
-    if 38/176 < r <= 39/176:
-        return "不需"
-    if 39/176 < r <= 40/176:
-        return "需要"
-    if 40/176 < r <= 41/176:
-        return "后退"
-    if 41/176 < r <= 42/176:
-        return "翻越"
-    if 42/176 < r <= 43/176:
+    if 0/29 < r <= 1/29:
+        return before_people_verb()
+    if 1/29 < r <= 2/29:
+        return after_people_verb()
+    if 2/29 < r <= 3/29:
+        return generic_no_object_verb()
+    if 3/29 < r <= 4/29:
+        return noun()
+    if 4/29 < r <= 5/29:
+        return before_people_verb() + people_noun()
+    if 5/29 < r <= 6/29:
+        return before_abstract_verb() + abstract_noun()
+    if 6/29 < r <= 7/29:
+        return before_abstract_verb() + things_noun()
+    if 7/29 < r <= 8/29:
+        return before_abstract_verb() + time_noun()
+    if 8/29 < r <= 9/29:
+        return before_people_verb() + qty_noun()
+    if 9/29 < r <= 10/29:
+        return before_abstract_verb() + qty_noun()
+    if 10/29 < r <= 11/29:
+        return before_place_verb() + place_noun()
+    if 11/29 < r <= 12/29:
+        return people_noun() + after_people_verb()
+    if 12/29 < r <= 13/29:
+        return noun() + generic_no_object_verb()
+    if 13/29 < r <= 14/29:
+        return "把" + abstract_noun() + before_abstract_verb()
+    if 14/29 < r <= 15/29:
+        return "把" + things_noun() + before_abstract_verb()
+    if 15/29 < r <= 16/29:
+        return "将" + abstract_noun() + before_abstract_verb()
+    if 16/29 < r <= 17/29:
+        return "像" + noun() + "一样"
+    if 17/29 < r <= 18/29:
+        return "像" + noun() + "一样" + adj()
+    if 18/29 < r <= 19/29:
+        return "在" + feelings_adj() + "时"
+    if 19/29 < r <= 20/29:
+        return noun() + expr_connector() + noun()
+    if 20/29 < r <= 21/29:
+        return adj() + "如" + noun()
+    if 21/29 < r <= 22/29:
+        return noun() + "是" + noun()
+    if 22/29 < r <= 23/29:
+        return noun() + "不是" + noun()
+    if 23/29 < r <= 24/29:
+        return people_noun() + "没有" + noun()
+    if 24/29 < r <= 25/29:
+        return pronoun() + "没有" + noun()
+    if 25/29 < r <= 26/29:
+        return "让" + pronoun() + after_people_verb()
+    if 26/29 < r <= 27/29:
+        return verb_prefix() + expr()
+    if 27/29 < r <= 28/29:
+        return "是" + noun()
+    if 28/29 < r <= 29/29:
+        return "不是" + noun()
+
+def before_people_verb():
+    r = random.random()
+    if 0/33 < r <= 1/33:
         return "失去"
-    if 43/176 < r <= 44/176:
-        return "走出"
-    if 44/176 < r <= 45/176:
-        return "呼喊"
-    if 45/176 < r <= 46/176:
-        return "在"
-    if 46/176 < r <= 47/176:
-        return "翻涌"
-    if 47/176 < r <= 48/176:
-        return "惊动"
-    if 48/176 < r <= 49/176:
-        return "不会"
-    if 49/176 < r <= 50/176:
-        return "存在"
-    if 50/176 < r <= 51/176:
-        return "假装"
-    if 51/176 < r <= 52/176:
-        return "立"
-    if 52/176 < r <= 53/176:
-        return "消融"
-    if 53/176 < r <= 54/176:
-        return "明灭"
-    if 54/176 < r <= 55/176:
-        return "摇晃"
-    if 55/176 < r <= 56/176:
-        return "听得"
-    if 56/176 < r <= 57/176:
-        return "迎来"
-    if 57/176 < r <= 58/176:
-        return "奔驰"
-    if 58/176 < r <= 59/176:
-        return "吹走"
-    if 59/176 < r <= 60/176:
-        return "透支"
-    if 60/176 < r <= 61/176:
-        return "遇见"
-    if 61/176 < r <= 62/176:
-        return "沦为"
-    if 62/176 < r <= 63/176:
-        return "绕过"
-    if 63/176 < r <= 64/176:
-        return "失重"
-    if 64/176 < r <= 65/176:
-        return "当是"
-    if 65/176 < r <= 66/176:
-        return "想"
-    if 66/176 < r <= 67/176:
-        return "打败"
-    if 67/176 < r <= 68/176:
-        return "救"
-    if 68/176 < r <= 69/176:
-        return "爱"
-    if 69/176 < r <= 70/176:
-        return "下沉"
-    if 70/176 < r <= 71/176:
-        return "在于"
-    if 71/176 < r <= 72/176:
-        return "回首"
-    if 72/176 < r <= 73/176:
-        return "站在"
-    if 73/176 < r <= 74/176:
-        return "受伤"
-    if 74/176 < r <= 75/176:
-        return "痊愈"
-    if 75/176 < r <= 76/176:
-        return "虚度"
-    if 76/176 < r <= 77/176:
-        return "空有"
-    if 77/176 < r <= 78/176:
-        return "流浪"
-    if 78/176 < r <= 79/176:
-        return "融化"
-    if 79/176 < r <= 80/176:
-        return "照"
-    if 80/176 < r <= 81/176:
-        return "照亮"
-    if 81/176 < r <= 82/176:
-        return "徘徊"
-    if 82/176 < r <= 83/176:
-        return "换"
-    if 83/176 < r <= 84/176:
-        return "错过"
-    if 84/176 < r <= 85/176:
-        return "重逢"
-    if 85/176 < r <= 86/176:
-        return "映照"
-    if 86/176 < r <= 87/176:
-        return "下山"
-    if 87/176 < r <= 88/176:
-        return "让"
-    if 88/176 < r <= 89/176:
-        return "飘"
-    if 89/176 < r <= 90/176:
-        return "漂浮"
-    if 90/176 < r <= 91/176:
-        return "找"
-    if 91/176 < r <= 92/176:
-        return "寻找"
-    if 92/176 < r <= 93/176:
-        return "扑"
-    if 93/176 < r <= 94/176:
-        return "下雨"
-    if 94/176 < r <= 95/176:
-        return "下雪"
-    if 95/176 < r <= 96/176:
-        return "悬空"
-    if 96/176 < r <= 97/176:
-        return "伤人"
-    if 97/176 < r <= 98/176:
-        return "高悬空中"
-    if 98/176 < r <= 99/176:
-        return "推开"
-    if 99/176 < r <= 100/176:
-        return "摆渡"
-    if 100/176 < r <= 101/176:
-        return "没有"
-    if 101/176 < r <= 102/176:
-        return "织出"
-    if 102/176 < r <= 103/176:
-        return "画"
-    if 103/176 < r <= 104/176:
-        return "画上"
-    if 104/176 < r <= 105/176:
-        return "醉"
-    if 105/176 < r <= 106/176:
-        return "沉醉"
-    if 106/176 < r <= 107/176:
-        return "坐在"
-    if 107/176 < r <= 108/176:
-        return "烧热"
-    if 108/176 < r <= 109/176:
-        return "靠近"
-    if 109/176 < r <= 110/176:
-        return "冻结"
-    if 110/176 < r <= 111/176:
-        return "沸腾"
-    if 111/176 < r <= 112/176:
-        return "出现在"
-    if 112/176 < r <= 113/176:
-        return "期待"
-    if 113/176 < r <= 114/176:
-        return "松手"
-    if 114/176 < r <= 115/176:
-        return "仰望"
-    if 115/176 < r <= 116/176:
-        return "可以"
-    if 116/176 < r <= 117/176:
-        return "写字"
-    if 117/176 < r <= 118/176:
-        return "生活"
-    if 118/176 < r <= 119/176:
-        return "坚持"
-    if 119/176 < r <= 120/176:
-        return "飘零"
-    if 120/176 < r <= 121/176:
-        return "宣告"
-    if 121/176 < r <= 122/176:
-        return "浮想联翩"
-    if 122/176 < r <= 123/176:
-        return "爱上"
-    if 123/176 < r <= 124/176:
-        return "对待"
-    if 124/176 < r <= 125/176:
-        return "跋涉"
-    if 125/176 < r <= 126/176:
-        return "终老"
-    if 126/176 < r <= 127/176:
-        return "浮动"
-    if 127/176 < r <= 128/176:
-        return "放手"
-    if 128/176 < r <= 129/176:
-        return "衰老"
-    if 129/176 < r <= 130/176:
-        return "回想"
-    if 130/176 < r <= 131/176:
-        return "舍得"
-    if 131/176 < r <= 132/176:
-        return "舍不得"
-    if 132/176 < r <= 133/176:
-        return "告诉"
-    if 133/176 < r <= 134/176:
-        return "碰到"
-    if 134/176 < r <= 135/176:
-        return "握别"
-    if 135/176 < r <= 136/176:
-        return "停顿"
-    if 136/176 < r <= 137/176:
-        return "碎"
-    if 137/176 < r <= 138/176:
-        return "砸碎"
-    if 138/176 < r <= 139/176:
-        return "飞扬"
-    if 139/176 < r <= 140/176:
-        return "怀着"
-    if 140/176 < r <= 141/176:
-        return "念念不忘"
-    if 141/176 < r <= 142/176:
-        return "驻守"
-    if 142/176 < r <= 143/176:
-        return "伫立"
-    if 143/176 < r <= 144/176:
-        return "未完"
-    if 144/176 < r <= 145/176:
-        return "苏醒"
-    if 145/176 < r <= 146/176:
-        return "铭记"
-    if 146/176 < r <= 147/176:
-        return "穿越"
-    if 147/176 < r <= 148/176:
-        return "穿透"
-    if 148/176 < r <= 149/176:
-        return "不辞而别"
-    if 149/176 < r <= 150/176:
-        return "冒险"
-    if 150/176 < r <= 151/176:
-        return "下雨"
-    if 151/176 < r <= 152/176:
-        return "成全"
-    if 152/176 < r <= 153/176:
-        return "起风"
-    if 153/176 < r <= 154/176:
-        return "住在"
-    if 154/176 < r <= 155/176:
-        return "挣扎"
-    if 155/176 < r <= 156/176:
-        return "感叹"
-    if 156/176 < r <= 157/176:
-        return "沿"
-    if 157/176 < r <= 158/176:
-        return "沿途"
-    if 158/176 < r <= 159/176:
-        return "愿意"
-    if 159/176 < r <= 160/176:
-        return "停息"
-    if 160/176 < r <= 161/176:
-        return "挑"
-    if 161/176 < r <= 162/176:
-        return "挑灯"
-    if 162/176 < r <= 163/176:
-        return "逃"
-    if 163/176 < r <= 164/176:
-        return "逃离"
-    if 164/176 < r <= 165/176:
-        return "拯救"
-    if 165/176 < r <= 166/176:
-        return "归零"
-    if 166/176 < r <= 167/176:
-        return "背负"
-    if 167/176 < r <= 168/176:
+    if 1/33 < r <= 2/33:
+        return "等"
+    if 2/33 < r <= 3/33:
+        return "离开"
+    if 3/33 < r <= 4/33:
         return "背叛"
-    if 168/176 < r <= 169/176:
+    if 4/33 < r <= 5/33:
         return "守护"
-    if 169/176 < r <= 170/176:
-        return "散落"
-    if 170/176 < r <= 171/176:
+    if 5/33 < r <= 6/33:
         return "惩罚"
-    if 171/176 < r <= 172/176:
+    if 6/33 < r <= 7/33:
         return "问"
-    if 172/176 < r <= 173/176:
-        return "找不到"
-    if 173/176 < r <= 174/176:
+    if 7/33 < r <= 8/33:
+        return "爱上"
+    if 8/33 < r <= 9/33:
+        return "爱"
+    if 9/33 < r <= 10/33:
+        return "拥抱"
+    if 10/33 < r <= 11/33:
+        return "相信"
+    if 11/33 < r <= 12/33:
+        return "忘记"
+    if 12/33 < r <= 13/33:
+        return "记得"
+    if 13/33 < r <= 14/33:
+        return "拥有"
+    if 14/33 < r <= 15/33:
+        return "选择" + before_people_verb()
+    if 15/33 < r <= 16/33:
+        return "做"
+    if 16/33 < r <= 17/33:
+        return "寻找"
+    if 17/33 < r <= 18/33:
+        return "握别"
+    if 18/33 < r <= 19/33:
+        return "迎来"
+    if 19/33 < r <= 20/33:
+        return "等待"
+    if 20/33 < r <= 21/33:
+        return "碰到"
+    if 21/33 < r <= 22/33:
+        return "惊动"
+    if 22/33 < r <= 23/33:
+        return "拯救"
+    if 23/33 < r <= 24/33:
+        return "成全"
+    if 24/33 < r <= 25/33:
         return "化作"
-    if 174/176 < r <= 175/176:
+    if 25/33 < r <= 26/33:
+        return "藏着"
+    if 26/33 < r <= 27/33:
+        return "出现了"
+    if 27/33 < r <= 28/33:
+        return "推开"
+    if 28/33 < r <= 29/33:
+        return "告诉"
+    if 29/33 < r <= 30/33:
+        return "遇见"
+    if 30/33 < r <= 31/33:
+        return "找不到"
+    if 31/33 < r <= 32/33:
+        return "沦为"
+    if 32/33 < r <= 33/33:
+        return "陪伴"
+
+def before_abstract_verb():
+    r = random.random()
+    if 0/54 < r <= 1/54:
+        return "预支"
+    if 1/54 < r <= 2/54:
+        return "借"
+    if 2/54 < r <= 3/54:
+        return "借" + pronoun()
+    if 3/54 < r <= 4/54:
+        return "看着"
+    if 4/54 < r <= 5/54:
+        return "看到"
+    if 5/54 < r <= 6/54:
+        return "报之以"
+    if 6/54 < r <= 7/54:
+        return "预知"
+    if 7/54 < r <= 8/54:
+        return "等待"
+    if 8/54 < r <= 9/54:
+        return "等"
+    if 9/54 < r <= 10/54:
+        return "品味着"
+    if 10/54 < r <= 11/54:
+        return "过去"
+    if 11/54 < r <= 12/54:
+        return "透支"
+    if 12/54 < r <= 13/54:
+        return "吹走"
+    if 13/54 < r <= 14/54:
+        return "化作"
+    if 14/54 < r <= 15/54:
+        return "品味"
+    if 15/54 < r <= 16/54:
+        return "藏着"
+    if 16/54 < r <= 17/54:
+        return "胜过"
+    if 17/54 < r <= 18/54:
+        return "感受到"
+    if 18/54 < r <= 19/54:
+        return "用"
+    if 19/54 < r <= 20/54:
+        return "将"
+    if 20/54 < r <= 21/54:
+        return "跌落"
+    if 21/54 < r <= 22/54:
+        return "画着"
+    if 22/54 < r <= 23/54:
+        return "画上"
+    if 23/54 < r <= 24/54:
+        return "吹走"
+    if 24/54 < r <= 25/54:
+        return "看尽"
+    if 25/54 < r <= 26/54:
+        return "没有"
+    if 26/54 < r <= 27/54:
+        return "绕过"
+    if 27/54 < r <= 28/54:
+        return "推开"
+    if 28/54 < r <= 29/54:
+        return "织出"
+    if 29/54 < r <= 30/54:
+        return "映照"
+    if 30/54 < r <= 31/54:
+        return "空有"
+    if 31/54 < r <= 32/54:
+        return "虚度"
+    if 32/54 < r <= 33/54:
+        return "照亮"
+    if 33/54 < r <= 34/54:
+        return "铭记"
+    if 34/54 < r <= 35/54:
+        return "期待"
+    if 35/54 < r <= 36/54:
+        return "穿透"
+    if 36/54 < r <= 37/54:
+        return "砸碎"
+    if 37/54 < r <= 38/54:
+        return "烧热"
+    if 38/54 < r <= 39/54:
+        return "扑灭"
+    if 39/54 < r <= 40/54:
+        return "找不到"
+    if 40/54 < r <= 41/54:
+        return "空余"
+    if 41/54 < r <= 42/54:
+        return "错付"
+    if 42/54 < r <= 43/54:
+        return "多"
+    if 43/54 < r <= 44/54:
+        return "沦为"
+    if 44/54 < r <= 45/54:
+        return "当是"
+    if 45/54 < r <= 46/54:
+        return "打败"
+    if 46/54 < r <= 47/54:
+        return "宣告"
+    if 47/54 < r <= 48/54:
+        return "折断"
+    if 48/54 < r <= 49/54:
         return "篆刻"
-    if 175/176 < r <= 176/176:
+    if 49/54 < r <= 50/54:
+        return "背负"
+    if 50/54 < r <= 51/54:
+        return "逃离"
+    if 51/54 < r <= 52/54:
+        return "孕育"
+    if 52/54 < r <= 53/54:
+        return "假装"
+    if 53/54 < r <= 54/54:
+        return "对待"
+
+def before_place_verb():
+    r = random.random()
+    if 0/28 < r <= 1/28:
+        return "走到"
+    if 1/28 < r <= 2/28:
+        return "离开"
+    if 2/28 < r <= 3/28:
+        return "来到"
+    if 3/28 < r <= 4/28:
+        return "埋在"
+    if 4/28 < r <= 5/28:
+        return "藏在"
+    if 5/28 < r <= 6/28:
+        return "行走在"
+    if 6/28 < r <= 7/28:
+        return "跌落"
+    if 7/28 < r <= 8/28:
+        return "翻越"
+    if 8/28 < r <= 9/28:
+        return "路经"
+    if 9/28 < r <= 10/28:
+        return "经过"
+    if 10/28 < r <= 11/28:
+        return "栖身"
+    if 11/28 < r <= 12/28:
+        return "飞入"
+    if 12/28 < r <= 13/28:
+        return "绕过"
+    if 13/28 < r <= 14/28:
+        return "驻守"
+    if 14/28 < r <= 15/28:
+        return "伫立"
+    if 15/28 < r <= 16/28:
+        return "跋涉"
+    if 16/28 < r <= 17/28:
+        return "映照"
+    if 17/28 < r <= 18/28:
+        return "站在"
+    if 18/28 < r <= 19/28:
+        return "照亮"
+    if 19/28 < r <= 20/28:
+        return "沿着"
+    if 20/28 < r <= 21/28:
+        return "怀着"
+    if 21/28 < r <= 22/28:
+        return "坐在"
+    if 22/28 < r <= 23/28:
+        return "徘徊于"
+    if 23/28 < r <= 24/28:
+        return "穿越"
+    if 24/28 < r <= 25/28:
+        return "找不到"
+    if 25/28 < r <= 26/28:
+        return "住在"
+    if 26/28 < r <= 27/28:
         return "望断"
+    if 27/28 < r <= 28/28:
+        return "奔驰在"
+
+def after_people_verb():
+    r = random.random()
+    if 0/38 < r <= 1/38:
+        return "明白"
+    if 1/38 < r <= 2/38:
+        return "说"
+    if 2/38 < r <= 3/38:
+        return "走"
+    if 3/38 < r <= 4/38:
+        return "离开"
+    if 4/38 < r <= 5/38:
+        return "来"
+    if 5/38 < r <= 6/38:
+        return "记得"
+    if 6/38 < r <= 7/38:
+        return "听得"
+    if 7/38 < r <= 8/38:
+        return "感叹"
+    if 8/38 < r <= 9/38:
+        return "喜欢"
+    if 9/38 < r <= 10/38:
+        return "觉得"
+    if 10/38 < r <= 11/38:
+        return "出现"
+    if 11/38 < r <= 12/38:
+        return "怕"
+    if 12/38 < r <= 13/38:
+        return "害怕"
+    if 13/38 < r <= 14/38:
+        return "知道"
+    if 14/38 < r <= 15/38:
+        return "承认"
+    if 15/38 < r <= 16/38:
+        return "选择"
+    if 16/38 < r <= 17/38:
+        return "走过"
+    if 17/38 < r <= 18/38:
+        return "后退"
+    if 18/38 < r <= 19/38:
+        return "靠近"
+    if 19/38 < r <= 20/38:
+        return "重逢"
+    if 20/38 < r <= 21/38:
+        return "沉醉"
+    if 21/38 < r <= 22/38:
+        return "流浪"
+    if 22/38 < r <= 23/38:
+        return "愿意"
+    if 23/38 < r <= 24/38:
+        return "下山"
+    if 24/38 < r <= 25/38:
+        return "期待"
+    if 25/38 < r <= 26/38:
+        return "徘徊"
+    if 26/38 < r <= 27/38:
+        return "舍不得"
+    if 27/38 < r <= 28/38:
+        return "舍得"
+    if 28/38 < r <= 29/38:
+        return "仰望"
+    if 29/38 < r <= 30/38:
+        return "写字"
+    if 30/38 < r <= 31/38:
+        return "生活"
+    if 31/38 < r <= 32/38:
+        return "坚持"
+    if 32/38 < r <= 33/38:
+        return "不辞而别"
+    if 33/38 < r <= 34/38:
+        return "开口"
+    if 34/38 < r <= 35/38:
+        return "不用" + after_people_verb()
+    if 35/38 < r <= 36/38:
+        return "不要" + after_people_verb()
+    if 36/38 < r <= 37/38:
+        return "终老"
+    if 37/38 < r <= 38/38:
+        return "衰老"
+
+def generic_no_object_verb():
+    r = random.random()
+    if 0/67 < r <= 1/67:
+        return "离开"
+    if 1/67 < r <= 2/67:
+        return "来"
+    if 2/67 < r <= 3/67:
+        return "记得"
+    if 3/67 < r <= 4/67:
+        return "承受"
+    if 4/67 < r <= 5/67:
+        return "过去"
+    if 5/67 < r <= 6/67:
+        return "已经" + generic_no_object_verb()
+    if 6/67 < r <= 7/67:
+        return generic_no_object_verb() + "了"
+    if 7/67 < r <= 8/67:
+        return "下沉"
+    if 8/67 < r <= 9/67:
+        return "跌落"
+    if 9/67 < r <= 10/67:
+        return "盛开"
+    if 10/67 < r <= 11/67:
+        return "走过"
+    if 11/67 < r <= 12/67:
+        return "存在"
+    if 12/67 < r <= 13/67:
+        return "下雪"
+    if 13/67 < r <= 14/67:
+        return "放手"
+    if 14/67 < r <= 15/67:
+        return "松手"
+    if 15/67 < r <= 16/67:
+        return "浮动"
+    if 16/67 < r <= 17/67:
+        return "没有"
+    if 17/67 < r <= 18/67:
+        return "失重"
+    if 18/67 < r <= 19/67:
+        return "冻结"
+    if 19/67 < r <= 20/67:
+        return "受伤"
+    if 20/67 < r <= 21/67:
+        return "痊愈"
+    if 21/67 < r <= 22/67:
+        return "摇晃"
+    if 22/67 < r <= 23/67:
+        return "明灭"
+    if 23/67 < r <= 24/67:
+        return "流浪"
+    if 24/67 < r <= 25/67:
+        return "消融"
+    if 25/67 < r <= 26/67:
+        return "融化"
+    if 26/67 < r <= 27/67:
+        return "沉醉"
+    if 27/67 < r <= 28/67:
+        return "重逢"
+    if 28/67 < r <= 29/67:
+        return "未完"
+    if 29/67 < r <= 30/67:
+        return "苏醒"
+    if 30/67 < r <= 31/67:
+        return "愿意"
+    if 31/67 < r <= 32/67:
+        return "沿途"
+    if 32/67 < r <= 33/67:
+        return "飞扬"
+    if 33/67 < r <= 34/67:
+        return "飘零"
+    if 34/67 < r <= 35/67:
+        return "错过"
+    if 35/67 < r <= 36/67:
+        return "让" + noun() + generic_no_object_verb()
+    if 36/67 < r <= 37/67:
+        return "沸腾"
+    if 37/67 < r <= 38/67:
+        return "碎"
+    if 38/67 < r <= 39/67:
+        return "念念不忘"
+    if 39/67 < r <= 40/67:
+        return "砸碎"
+    if 40/67 < r <= 41/67:
+        return "可以"
+    if 41/67 < r <= 42/67:
+        return "不可以"
+    if 42/67 < r <= 43/67:
+        return "仰望"
+    if 43/67 < r <= 44/67:
+        return "写字"
+    if 44/67 < r <= 45/67:
+        return "生活"
+    if 45/67 < r <= 46/67:
+        return "下雨"
+    if 46/67 < r <= 47/67:
+        return "悬空"
+    if 47/67 < r <= 48/67:
+        return "伤人"
+    if 48/67 < r <= 49/67:
+        return "高悬空中"
+    if 49/67 < r <= 50/67:
+        return "散落"
+    if 50/67 < r <= 51/67:
+        return "散落一地"
+    if 51/67 < r <= 52/67:
+        return "冒险"
+    if 52/67 < r <= 53/67:
+        return "干涸"
+    if 53/67 < r <= 54/67:
+        return "已经" + generic_no_object_verb()
+    if 54/67 < r <= 55/67:
+        return "虽然" + generic_no_object_verb()
+    if 55/67 < r <= 56/67:
+        return "不用" + generic_no_object_verb()
+    if 56/67 < r <= 57/67:
+        return "不要" + generic_no_object_verb()
+    if 57/67 < r <= 58/67:
+        return "浮想联翩"
+    if 58/67 < r <= 59/67:
+        return "归零"
+    if 59/67 < r <= 60/67:
+        return "挑灯"
+    if 60/67 < r <= 61/67:
+        return "停息"
+    if 61/67 < r <= 62/67:
+        return "起风"
+    if 62/67 < r <= 63/67:
+        return "挣扎"
+    if 63/67 < r <= 64/67:
+        return "回想"
+    if 64/67 < r <= 65/67:
+        return "停顿"
+    if 65/67 < r <= 66/67:
+        return "翻涌"
+    if 66/67 < r <= 67/67:
+        return "奔驰"
 
 def people_qty():
     r = random.random()
@@ -839,250 +892,252 @@ def feelings_adj():
 
 def noun_adj():
     r = random.random()
-    if 0/122 < r <= 1/122:
+    if 0/123 < r <= 1/123:
         return feelings_adj()
-    if 1/122 < r <= 2/122:
+    if 1/123 < r <= 2/123:
         return feelings_adj()
-    if 2/122 < r <= 3/122:
+    if 2/123 < r <= 3/123:
         return feelings_adj()
-    if 3/122 < r <= 4/122:
+    if 3/123 < r <= 4/123:
         return "繁荣"
-    if 4/122 < r <= 5/122:
+    if 4/123 < r <= 5/123:
         return "不言而喻"
-    if 5/122 < r <= 6/122:
+    if 5/123 < r <= 6/123:
         return "最终"
-    if 6/122 < r <= 7/122:
+    if 6/123 < r <= 7/123:
         return "藏起来"
-    if 7/122 < r <= 8/122:
+    if 7/123 < r <= 8/123:
         return "鲁莽"
-    if 8/122 < r <= 9/122:
+    if 8/123 < r <= 9/123:
         return "磊落"
-    if 9/122 < r <= 10/122:
+    if 9/123 < r <= 10/123:
         return "庄严"
-    if 10/122 < r <= 11/122:
+    if 10/123 < r <= 11/123:
         return "温暖"
-    if 11/122 < r <= 12/122:
+    if 11/123 < r <= 12/123:
         return "温柔"
-    if 12/122 < r <= 13/122:
+    if 12/123 < r <= 13/123:
         return "柔软"
-    if 13/122 < r <= 14/122:
+    if 13/123 < r <= 14/123:
         return "磊落"
-    if 14/122 < r <= 15/122:
+    if 14/123 < r <= 15/123:
         return "最初"
-    if 15/122 < r <= 16/122:
+    if 15/123 < r <= 16/123:
         return "平庸"
-    if 16/122 < r <= 17/122:
+    if 16/123 < r <= 17/123:
         return "无动于衷"
-    if 17/122 < r <= 18/122:
+    if 17/123 < r <= 18/123:
         return "黑暗"
-    if 18/122 < r <= 19/122:
+    if 18/123 < r <= 19/123:
         return "如旧"
-    if 19/122 < r <= 20/122:
+    if 19/123 < r <= 20/123:
         return "曾经"
-    if 20/122 < r <= 21/122:
+    if 20/123 < r <= 21/123:
         return "从前"
-    if 21/122 < r <= 22/122:
+    if 21/123 < r <= 22/123:
         return "不顾一切"
-    if 22/122 < r <= 23/122:
+    if 22/123 < r <= 23/123:
         return "遥远"
-    if 23/122 < r <= 24/122:
+    if 23/123 < r <= 24/123:
         return "大火"
-    if 24/122 < r <= 25/122:
+    if 24/123 < r <= 25/123:
         return "殷红"
-    if 25/122 < r <= 26/122:
+    if 25/123 < r <= 26/123:
         return "漫长"
-    if 26/122 < r <= 27/122:
+    if 26/123 < r <= 27/123:
         return "漫漫"
-    if 27/122 < r <= 28/122:
+    if 27/123 < r <= 28/123:
         return "满满"
-    if 28/122 < r <= 29/122:
+    if 28/123 < r <= 29/123:
         return "漫夜"
-    if 29/122 < r <= 30/122:
+    if 29/123 < r <= 30/123:
         return "群星"
-    if 30/122 < r <= 31/122:
+    if 30/123 < r <= 31/123:
         return "明朝"
-    if 31/122 < r <= 32/122:
+    if 31/123 < r <= 32/123:
         return "恐惧"
-    if 32/122 < r <= 33/122:
+    if 32/123 < r <= 33/123:
         return "彻头彻尾"
-    if 33/122 < r <= 34/122:
+    if 33/123 < r <= 34/123:
         return "彻底"
-    if 34/122 < r <= 35/122:
+    if 34/123 < r <= 35/123:
         return "清澈"
-    if 35/122 < r <= 36/122:
+    if 35/123 < r <= 36/123:
         return "失魂落魄"
-    if 36/122 < r <= 37/122:
+    if 36/123 < r <= 37/123:
         return "薄情"
-    if 37/122 < r <= 38/122:
+    if 37/123 < r <= 38/123:
         return "粉身碎骨"
-    if 38/122 < r <= 39/122:
+    if 38/123 < r <= 39/123:
         return "绚烂"
-    if 39/122 < r <= 40/122:
+    if 39/123 < r <= 40/123:
         return "自负"
-    if 40/122 < r <= 41/122:
+    if 40/123 < r <= 41/123:
         return "软弱"
-    if 41/122 < r <= 42/122:
+    if 41/123 < r <= 42/123:
         return "坦白"
-    if 42/122 < r <= 43/122:
+    if 42/123 < r <= 43/123:
         return "如花"
-    if 43/122 < r <= 44/122:
+    if 43/123 < r <= 44/123:
         return "随意"
-    if 44/122 < r <= 45/122:
+    if 44/123 < r <= 45/123:
         return "忧郁"
-    if 45/122 < r <= 46/122:
+    if 45/123 < r <= 46/123:
         return "悲伤"
-    if 46/122 < r <= 47/122:
+    if 46/123 < r <= 47/123:
         return "欢喜"
-    if 47/122 < r <= 48/122:
+    if 47/123 < r <= 48/123:
         return "所有"
-    if 48/122 < r <= 49/122:
+    if 48/123 < r <= 49/123:
         return "沉重"
-    if 49/122 < r <= 50/122:
+    if 49/123 < r <= 50/123:
         return "污浊"
-    if 50/122 < r <= 51/122:
+    if 50/123 < r <= 51/123:
         return "比如"
-    if 51/122 < r <= 52/122:
+    if 51/123 < r <= 52/123:
         return "脆弱"
-    if 52/122 < r <= 53/122:
+    if 52/123 < r <= 53/123:
         return "不堪"
-    if 53/122 < r <= 54/122:
+    if 53/123 < r <= 54/123:
         return "黑白"
-    if 54/122 < r <= 55/122:
+    if 54/123 < r <= 55/123:
         return "装模作样"
-    if 55/122 < r <= 56/122:
+    if 55/123 < r <= 56/123:
         return "复杂"
-    if 56/122 < r <= 57/122:
+    if 56/123 < r <= 57/123:
         return "一个人"
-    if 57/122 < r <= 58/122:
+    if 57/123 < r <= 58/123:
         return "澄澈"
-    if 58/122 < r <= 59/122:
+    if 58/123 < r <= 59/123:
         return "苟且"
-    if 59/122 < r <= 60/122:
+    if 59/123 < r <= 60/123:
         return "诗意"
-    if 60/122 < r <= 61/122:
+    if 60/123 < r <= 61/123:
         return "简单"
-    if 61/122 < r <= 62/122:
+    if 61/123 < r <= 62/123:
         return "多余"
-    if 62/122 < r <= 63/122:
+    if 62/123 < r <= 63/123:
         return "一无所有"
-    if 63/122 < r <= 64/122:
+    if 63/123 < r <= 64/123:
         return "流浪"
-    if 64/122 < r <= 65/122:
+    if 64/123 < r <= 65/123:
         return "从容"
-    if 65/122 < r <= 66/122:
+    if 65/123 < r <= 66/123:
         return "迟钝"
-    if 66/122 < r <= 67/122:
+    if 66/123 < r <= 67/123:
         return "苍白"
-    if 67/122 < r <= 68/122:
+    if 67/123 < r <= 68/123:
         return "明亮"
-    if 68/122 < r <= 69/122:
+    if 68/123 < r <= 69/123:
         return "冰凉"
-    if 69/122 < r <= 70/122:
+    if 69/123 < r <= 70/123:
         return "舒适"
-    if 70/122 < r <= 71/122:
+    if 70/123 < r <= 71/123:
         return "悸动"
-    if 71/122 < r <= 72/122:
+    if 71/123 < r <= 72/123:
         return "懦弱"
-    if 72/122 < r <= 73/122:
+    if 72/123 < r <= 73/123:
         return "傻傻"
-    if 73/122 < r <= 74/122:
+    if 73/123 < r <= 74/123:
         return "漫漫"
-    if 74/122 < r <= 75/122:
+    if 74/123 < r <= 75/123:
         return "烈烈"
-    if 75/122 < r <= 76/122:
+    if 75/123 < r <= 76/123:
         return "恰到好处"
-    if 76/122 < r <= 77/122:
+    if 76/123 < r <= 77/123:
         return "鲜明"
-    if 77/122 < r <= 78/122:
+    if 77/123 < r <= 78/123:
         return "每一个"
-    if 78/122 < r <= 79/122:
+    if 78/123 < r <= 79/123:
         return "好"
-    if 79/122 < r <= 80/122:
+    if 79/123 < r <= 80/123:
         return "安宁"
-    if 80/122 < r <= 81/122:
+    if 80/123 < r <= 81/123:
         return "宁静"
-    if 81/122 < r <= 82/122:
+    if 81/123 < r <= 82/123:
         return "黯然"
-    if 82/122 < r <= 83/122:
+    if 82/123 < r <= 83/123:
         return "坚定"
-    if 83/122 < r <= 84/122:
+    if 83/123 < r <= 84/123:
         return "苦涩"
-    if 84/122 < r <= 85/122:
+    if 84/123 < r <= 85/123:
         return "不为人知"
-    if 85/122 < r <= 86/122:
+    if 85/123 < r <= 86/123:
         return "不易察觉"
-    if 86/122 < r <= 87/122:
+    if 86/123 < r <= 87/123:
         return "骄傲"
-    if 87/122 < r <= 88/122:
+    if 87/123 < r <= 88/123:
         return "圆缺"
-    if 88/122 < r <= 89/122:
+    if 88/123 < r <= 89/123:
         return "浮光掠影"
-    if 89/122 < r <= 90/122:
+    if 89/123 < r <= 90/123:
         return "陈年"
-    if 90/122 < r <= 91/122:
+    if 90/123 < r <= 91/123:
         return "云涌"
-    if 91/122 < r <= 92/122:
+    if 91/123 < r <= 92/123:
         return "风起云涌"
-    if 92/122 < r <= 93/122:
+    if 92/123 < r <= 93/123:
         return "泛黄"
-    if 93/122 < r <= 94/122:
+    if 93/123 < r <= 94/123:
         return "落幕"
-    if 94/122 < r <= 95/122:
+    if 94/123 < r <= 95/123:
         return "古老"
-    if 95/122 < r <= 96/122:
+    if 95/123 < r <= 96/123:
         return "年少"
-    if 96/122 < r <= 97/122:
+    if 96/123 < r <= 97/123:
         return "辉煌"
-    if 97/122 < r <= 98/122:
+    if 97/123 < r <= 98/123:
         return "模糊"
-    if 98/122 < r <= 99/122:
+    if 98/123 < r <= 99/123:
         return "空洞"
-    if 99/122 < r <= 100/122:
+    if 99/123 < r <= 100/123:
         return "难"
-    if 100/122 < r <= 101/122:
+    if 100/123 < r <= 101/123:
         return "容易"
-    if 101/122 < r <= 102/122:
+    if 101/123 < r <= 102/123:
         return "长久"
-    if 102/122 < r <= 103/122:
+    if 102/123 < r <= 103/123:
         return "永远"
-    if 103/122 < r <= 104/122:
+    if 103/123 < r <= 104/123:
         return "破碎"
-    if 104/122 < r <= 105/122:
+    if 104/123 < r <= 105/123:
         return "苦痛"
-    if 105/122 < r <= 106/122:
+    if 105/123 < r <= 106/123:
         return "疲乏"
-    if 106/122 < r <= 107/122:
+    if 106/123 < r <= 107/123:
         return "疲倦"
-    if 107/122 < r <= 108/122:
+    if 107/123 < r <= 108/123:
         return "轰烈"
-    if 108/122 < r <= 109/122:
+    if 108/123 < r <= 109/123:
         return "轰轰烈烈"
-    if 109/122 < r <= 110/122:
+    if 109/123 < r <= 110/123:
         return "这样"
-    if 110/122 < r <= 111/122:
+    if 110/123 < r <= 111/123:
         return "那样"
-    if 111/122 < r <= 112/122:
+    if 111/123 < r <= 112/123:
         return "这样"
-    if 112/122 < r <= 113/122:
+    if 112/123 < r <= 113/123:
         return "那样"
-    if 113/122 < r <= 114/122:
+    if 113/123 < r <= 114/123:
         return "神圣"
-    if 114/122 < r <= 115/122:
+    if 114/123 < r <= 115/123:
         return "麻木"
-    if 115/122 < r <= 116/122:
+    if 115/123 < r <= 116/123:
         return "安静"
-    if 116/122 < r <= 117/122:
+    if 116/123 < r <= 117/123:
         return "失望"
-    if 117/122 < r <= 118/122:
+    if 117/123 < r <= 118/123:
         return "空灵"
-    if 118/122 < r <= 119/122:
+    if 118/123 < r <= 119/123:
         return "坦率"
-    if 119/122 < r <= 120/122:
+    if 119/123 < r <= 120/123:
         return "清冷"
-    if 120/122 < r <= 121/122:
+    if 120/123 < r <= 121/123:
         return "孤傲"
-    if 121/122 < r <= 122/122:
+    if 121/123 < r <= 122/123:
         return "憔悴"
+    if 122/123 < r <= 123/123:
+        return "心酸"
 
 def noun():
     r = random.random()

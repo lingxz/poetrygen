@@ -14,6 +14,7 @@ def uniqid():
 def clean_poem(poetry):
     poetry = poetry.strip()
     poetry = poetry.replace("\n\n\n", "\n\n")
+    poetry = poetry.replace("一样一样", "一样")
     lines = poetry.split("\n")
     trimmed_lines = []
     for line in lines:

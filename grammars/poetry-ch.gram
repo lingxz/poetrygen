@@ -4,10 +4,7 @@ poetry -> stanza | stanza stanza | poetry "\n" stanza
 stanza -> line "\n" line "\n" line "\n\n" | line "\n" line "\n" line "\n" line "\n\n" | line "\n" stanza
 line -> sentence | sentence punc | expr punc | sentence | sentence punc | expr punc | question
 
-sentence -> verb expr | pronoun "是" expr | "是" pronoun expr | sentence punc connector sentence | verb noun | noun verb noun | expr verb expr | connector sentence
-
-expr_connector -> "的" | "或" | "和" | "与"
-expr -> verb | noun | noun expr_connector noun | noun expr_connector noun | noun expr_connector noun | expr expr_connector expr | expr adj | noun noun_adj | adj "如" noun | noun "或" noun | noun "与" noun | noun "和" noun | "像" noun "一样" | "像" noun "一样" adj | "在" feelings_adj "时" | "让" pronoun verb | "让" noun verb
+sentence -> expr punc connector expr | connector expr | expr | expr
 
 question -> qn_aux sentence "？" | qn_aux expr "？" | sentence "？" | qn_aux "就好像" expr "？"
 qn_aux -> "是否" | "为何" | "难道" | "竟然" | "为什么" | "是不是" | "如何"
@@ -28,9 +25,23 @@ verb_nodec -> "是" | "不是" | "没有"
 
 verb_hasdec -> | common_verb | common_verb | common_verb | rarer_verb | "不" verb
 
-common_verb -> "明白" | "说" | "走" | "离开" | "来" | "看" | "望" | "听" | "喜欢" | "觉得" | "出现" | "胜过" | "感受" | "用" | "行走" | "品味" | "怕" | "害怕" | "拥有" | "知道" | "将" | "承认" | "流" | "只是" | "相信" | "选择" | "过去" | "忘记" | "承受" | "记得"
 
-rarer_verb -> "借" | "预支" | "引" | "引来" | "藏" | "预知" | "埋在" | "错付" | "飞入" | "做了" | "跌落" | "盛开" | "走过" | "不来" | "等待" | "等" | "怀念" | "说话" | "回报" | "报之" | "要" | "把" | "孕育" | "干涸" | "拥抱" | "有" | "伴" | "陪伴" | "看尽" | "路经" | "经过" | "栖身" | "似" | "好像" | "仿佛" | "多" | "空余" | "开口" | "不需" | "需要" | "后退" | "翻越" | "失去" | "走出" | "呼喊" | "在" | "翻涌" | "惊动" | "不会" | "存在" | "假装" | "立" | "消融" | "明灭" | "摇晃" | "听得" | "迎来" | "奔驰" | "吹走" | "透支" | "遇见" | "沦为" | "绕过" | "失重" | "当是" | "想" | "打败" | "救" | "爱" | "下沉" | "在于" | "回首" | "站在" | "受伤" | "痊愈" | "虚度" | "空有" | "流浪" | "融化" | "照" | "照亮" | "徘徊" | "换" | "错过" | "重逢" | "映照" | "下山" | "让" | "飘" | "漂浮" | "找" | "寻找" | "扑" | "下雨" | "下雪" | "悬空" | "伤人" | "高悬空中" | "推开" | "摆渡" | "没有" | "织出" | "画" | "画上" | "醉" | "沉醉" | "坐在" | "烧热" | "靠近" | "冻结" | "沸腾" | "出现在" | "期待" | "松手" | "仰望" | "可以" | "写字" | "生活" | "坚持" | "飘零" | "宣告" | "浮想联翩" | "爱上" | "对待" | "跋涉" | "终老" | "浮动" | "放手" | "衰老" | "回想" | "舍得" | "舍不得" | "告诉" | "碰到" | "握别" | "停顿" | "碎" | "砸碎" | "飞扬" | "怀着" | "念念不忘" | "驻守" | "伫立" | "未完" | "苏醒" | "铭记" | "穿越" | "穿透" | "不辞而别" | "冒险" | "下雨" | "成全" | "起风" | "住在" | "挣扎" | "感叹" | "沿" | "沿途" | "愿意" | "停息" | "挑" | "挑灯" | "逃" | "逃离" | "拯救" | "归零" | "背负" | "背叛" | "守护" | "散落" | "惩罚" | "问" | "找不到" | "化作" | "篆刻" | "望断" | "折断"
+
+expr_connector -> "的" | "或" | "和" | "与"
+# expr -> verb | noun | noun expr_connector noun | noun expr_connector noun | noun expr_connector noun | expr expr_connector expr | expr adj | noun noun_adj | adj "如" noun | noun "或" noun | noun "与" noun | noun "和" noun | "像" noun "一样" | "像" noun "一样" adj | "在" feelings_adj "时" | "让" pronoun verb | "让" noun verb
+
+
+expr -> before_people_verb | after_people_verb | generic_no_object_verb | noun | before_people_verb people_noun | before_abstract_verb abstract_noun | before_abstract_verb things_noun | before_abstract_verb time_noun | before_people_verb qty_noun | before_abstract_verb qty_noun | before_place_verb place_noun | people_noun after_people_verb | noun generic_no_object_verb | "把" abstract_noun before_abstract_verb | "把" things_noun before_abstract_verb | "将" abstract_noun before_abstract_verb |  "像" noun "一样" | "像" noun "一样" adj | "在" feelings_adj "时" | noun expr_connector noun | adj "如" noun | noun "是" noun | noun "不是" noun | people_noun "没有" noun | pronoun "没有" noun | "让" pronoun after_people_verb | verb_prefix expr | "是" noun | "不是" noun 
+
+before_people_verb -> "失去" | "等" | "离开" | "背叛" | "守护" | "惩罚" | "问" | "爱上" | "爱" | "拥抱" | "相信" | "忘记" | "记得" | "拥有" | "选择" before_people_verb | "做" | "寻找" | "握别" | "迎来" | "等待" | "碰到" | "惊动" | "拯救" | "成全" | "化作" | "藏着" | "出现了" | "推开" | "告诉" | "遇见" | "找不到" | "沦为" | "陪伴"
+before_abstract_verb -> "预支" | "借" | "借" pronoun | "看着" | "看到" | "报之以" | "预知" | "等待" | "等" | "品味着" | "过去" | "透支" | "吹走" | "化作" | "品味" | "藏着" | "胜过" | "感受到" | "用" | "将" | "跌落" | "画着" | "画上" | "吹走" | "看尽" | "没有" | "绕过" | "推开" | "织出" | "映照" | "空有" | "虚度" | "照亮" | "铭记" | "期待" | "穿透" | "砸碎" | "烧热" | "扑灭" | "找不到" | "空余" | "错付" | "多" | "沦为" | "当是" | "打败" | "宣告" | "折断" | "篆刻" | "背负" | "逃离" | "孕育" | "假装" | "对待"
+before_place_verb -> "走到" | "离开" | "来到" | "埋在" | "藏在" | "行走在" | "跌落" | "翻越" | "路经" | "经过" | "栖身" | "飞入" | "绕过" | "驻守" | "伫立" | "跋涉" | "映照" | "站在" | "照亮" | "沿着" | "怀着" | "坐在" | "徘徊于" | "穿越" | "找不到" | "住在" | "望断" | "奔驰在"
+
+after_people_verb -> "明白" | "说" | "走" | "离开" | "来" | "记得" | "听得" | "感叹" | "喜欢" | "觉得" | "出现" | "怕" | "害怕" | "知道" | "承认" | "选择" | "走过" | "后退"| "靠近" | "重逢" | "沉醉" | "流浪" | "愿意" | "下山" | "期待" | "徘徊" | "舍不得" | "舍得" | "仰望" | "写字" | "生活" | "坚持" | "不辞而别" | "开口" | "不用" after_people_verb | "不要" after_people_verb | "终老" | "衰老"
+generic_no_object_verb -> "离开" | "来" | "记得" | "承受" | "过去" | "已经" generic_no_object_verb | generic_no_object_verb "了" | "下沉" | "跌落" | "盛开" | "走过" | "存在" | "下雪" | "放手" | "松手" | "浮动" | "没有" | "失重" | "冻结" | "受伤" | "痊愈" | "摇晃" | "明灭" | "流浪" | "消融" | "融化" | "沉醉" | "重逢" | "未完" | "苏醒" | "愿意" | "沿途" | "飞扬" | "飘零" | "错过" | "让" noun generic_no_object_verb | "沸腾" | "碎" | "念念不忘" | "砸碎" | "可以" | "不可以" | "仰望" | "写字" | "生活" | "下雨" | "悬空" | "伤人" | "高悬空中" | "散落" | "散落一地" | "冒险" | "干涸" | "已经" generic_no_object_verb | "虽然" generic_no_object_verb | "不用" generic_no_object_verb | "不要" generic_no_object_verb | "浮想联翩"| "归零" | "挑灯" | "停息" | "起风" | "挣扎" | "回想" | "停顿" | "翻涌" | "奔驰"
+
+
+# rarer_verb -> "引" | "引来" | "藏" | "不来" | "怀念" | "说话" | "回报" | "要" | "把" | "有" | "伴" | "似" | "好像" | "仿佛" | "开口" | "不需" | "需要" | "走出" | "呼喊" | "在" | "不会" | "立" | "摇晃" | "透支" | "想" | "救" | "爱" | "在于" | "回首" | "徘徊" | "换" | "飘" | "漂浮" | "找" | "摆渡" | "醉" | "对待"
 
 
 
