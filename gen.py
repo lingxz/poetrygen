@@ -30,6 +30,7 @@ def {}():
 
 def gen(infile, outfile):
     output = open(outfile, "w", encoding="utf-8")
+    output.write("'''Warning: this is a generated file '''\n")
     output.write("import random\n")
     with open(infile, "r", encoding="utf-8") as f:
         data = f.readlines()

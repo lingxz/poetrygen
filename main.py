@@ -14,17 +14,20 @@ def uniqid():
 def clean_poem(poetry):
     poetry = poetry.strip()
     poetry = poetry.replace("\n\n\n", "\n\n")
+    # remove some common duplicates
     poetry = poetry.replace("一样一样", "一样")
+    poetry = poetry.replace("了了", "了")
     lines = poetry.split("\n")
     trimmed_lines = []
     for line in lines:
         if line == "\n" or len(line) <= 20:
             trimmed_lines.append(line)
-        else:  # line too long, split the line
-            line_length = len(line)
-            first_len = random.randint(line_length // 4, 3 * line_length // 4)
-            trimmed_lines.append(line[:first_len])
-            trimmed_lines.append(line[first_len:])
+        else:  # line too long, probably doesn't make sense
+            continue
+            # line_length = len(line)
+            # first_len = random.randint(line_length // 4, 3 * line_length // 4)
+            # trimmed_lines.append(line[:first_len])
+            # trimmed_lines.append(line[first_len:])
 
     poetry = "\n".join(trimmed_lines)
     if poetry[-1] in ["，"]:  # ends with non-terminating punctuation
